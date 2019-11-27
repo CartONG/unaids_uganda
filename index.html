@@ -42,9 +42,18 @@
       //---------------------------------
       //     Application configuration
       //---------------------------------
+      var appID;
+      if (navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i) || window.innerWidth < 768) {
+        console.log("Mobile browser detected");
+        appID = '84e53b10b6bd4ab69fae3f8b43661642';
+      }
+      else {
+        console.log("Desktop browser detected");
+        appID = '998ac99f48c9403a9b6c9ec3440362c1';
+      }
       var configOptions = {
         // Enter an application ID created through the Cascade builder
-        appid: "998ac99f48c9403a9b6c9ec3440362c1",
+        appid: appID,
         // https://unaids.maps.arcgis.com/apps/Cascade/index.html?appid=998ac99f48c9403a9b6c9ec3440362c1
         // Optionally, to secure Cascade's access, if the story item is private or to use the builder
         //    configure an ArcGIS OAuth application ID (example: 6gyOg377fLUhUk6f)
@@ -100,8 +109,8 @@
       }
       @font-face {
           font-family: 'Avenir-Book';
-          src: url('AvenirLTStd-Book.woff2') format('woff2'),
-              url('AvenirLTStd-Book.woff') format('woff');
+          src: url('./resources/fonts/AvenirLTStd-Book.woff2') format('woff2'),
+              url('./resources/fonts/AvenirLTStd-Book.woff') format('woff');
           font-weight: normal;
           font-style: normal;
       }
